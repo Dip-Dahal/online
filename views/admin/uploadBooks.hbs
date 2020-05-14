@@ -1,0 +1,56 @@
+
+
+<head>
+  <link rel="stylesheet" href="/stylesheets/uploadBooks.css">
+
+</head>
+<body>
+  <div class="dividerss">
+
+  </div>
+<div class="loginBox">
+  <img src="/images/book.png" alt=""class="user">
+
+  <h2>Upload Books</h2>
+  <form onload="disableSubmit()" action="/admin/uploadBooks" method="post" enctype="multipart/form-data">
+    <p>Item Name</p>
+    <input type="text" name="itemName" id="itemName" placeholder="Enter Item Name" value="" required>
+
+    <p>Item Description</p>
+    <input type="text" name="ItemDescription" id="ItemDescription" placeholder="Should not be greater than 35 characters" value="" maxlength="35" required>
+
+    <p>Upload Image</p>
+    <input type='file' id="filename" name="filename"  onchange="readURL(this);"  required/>
+    <img class="upload_image" id="blah" name="blah" src="#" alt="your image" />
+
+    <span id="myPrice">Price</span>
+    <span>NPR:</span> &nbsp;
+    <input name="price"
+    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number" maxlength = "5" id="price" name="price" required/>
+
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+    <input type="submit" name="submit" id="submit" value="Upload Item">
+  </form>
+
+</div>
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+</script>
+</body>

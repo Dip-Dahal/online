@@ -1,0 +1,48 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/headerSty.css">
+</head>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="/">
+    <img src="/images/logo.png" alt=""> OCS
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Classroom</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Shop
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/books"><i class="fa fa-book"></i> Books</a>
+          <a class="dropdown-item" href="/stationery"> <i class="fas fa-pen"></i> Stationery</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/shopping-cart"> <i class="fas fa-shopping-cart"></i> Cart <span class="badge">{{session.cart.totalQty}}</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fas fa-user"></i>
+          User Management
+        </a>
+        <div class="dropdown-menu">
+          {{# if login}}
+          <a class="dropdown-item" href="/user/profile">User Account</a>
+          <a class="dropdown-item" href="/user/logout"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+          {{ else }}
+          <a class="dropdown-item" href="/user/signup">Sign up</a>
+          <a class="dropdown-item" href="/user/signin"> Sign in</a>
+          {{/if}}
+
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</nav>

@@ -1,0 +1,202 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/cartStyle.css">
+</head>
+
+<body>
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+  {{# if products}}
+    <div class="background-change-transparent">
+      <div class="privacy about">
+        <h2>Checkout</h2>
+        <div class="checkout-right">
+          <h4>Your shopping cart contains: <span>3 Products</span></h4>
+          <table class="timetable_sub">
+            <thead>
+              <tr>
+                <th>SL No.</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total Price</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody class="css-serial">
+              {{# each products}}
+                <tr class="rem1">
+                  <td class="invert"></td>
+
+                  <td class="invert">{{this.item.title}}</td>
+                  <td class="invert">
+                    <div class="quantity">
+                      <div class="quantity-select">
+                        <div class="entry value-minus">&nbsp;</div>
+                        <div class="entry value"><span>{{this.qty}}</span></div>
+                        <div class="entry value-plus active">&nbsp;</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="invert">{{this.price}}</td>
+                  <td class="invert">{{this.price}}</td>
+
+                  <td class="invert">
+                    <div class="rem">
+                      <div class="close1">
+                        <img src="/images/delete.png" alt="delete"></div>
+                    </div>
+                  </td>
+                </tr>
+                {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <!---728x90--->
+        <div class="checkout-left">
+          <div class="col-md-4 checkout-left-basket">
+            <h4>Continue to basket</h4>
+            <ul>
+              <table class="css-serial">
+                <h5><b>Summary</b> </h5>
+                <div class="hr-border">
+                </div>
+                <thead>
+                  {{# each products}}
+                    <tr>
+                      <td></td>
+                      <td>--</td>
+                      <td colspan="3">{{this.item.title}}</td>
+                      <td>{{this.price}}</td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+              </table>
+              <div class="hr-border">
+                <li>Total <i>-</i> <span>Npr: &nbsp;&nbsp; {{totalPrice}}</span></li>
+              </div>
+            </ul>
+          </div>
+          <div class="col-md-8 address_form_agile">
+            <h4>Add a new Details</h4>
+            <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
+              <section class="creditly-wrapper wthree, w3_agileits_wrapper">
+                <div class="information-wrapper">
+                  <div class="first-row form-group">
+                    <div class="controls">
+                      <label class="control-label">Full name: </label>
+                      <input class="billing-address-name form-control" type="text" name="name" placeholder="Full name">
+                    </div>
+                    <div class="w3_agileits_card_number_grids">
+                      <div class="w3_agileits_card_number_grid_left">
+                        <div class="controls">
+                          <label class="control-label">Mobile number:</label>
+                          <input class="form-control" type="text" placeholder="Mobile number">
+                        </div>
+                      </div>
+                      <div class="w3_agileits_card_number_grid_right">
+                        <div class="controls">
+                          <label class="control-label">Landmark: </label>
+                          <input class="form-control" type="text" placeholder="Landmark">
+                        </div>
+                      </div>
+                      <div class="clear"> </div>
+                    </div>
+                    <div class="controls">
+                      <label class="control-label">Town/City: </label>
+                      <input class="form-control" type="text" placeholder="Town/City">
+                    </div>
+                    <div class="controls">
+                      <label class="control-label">Address type: </label>
+                      <select class="form-control option-w3ls">
+                        <option>Office</option>
+                        <option>Home</option>
+                        <option>Commercial</option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <button class="submit check_out">Delivery to this Address</button>
+                </div>
+              </section>
+            </form>
+            <div class="checkout-right-basket">
+              <a href="payment.html">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="full-width-footer">
+        <!-- Start Contact section -->
+        <div id="contact" class="offset">
+          <footer>
+            <div class="row justify-content-center">
+              <div class="col-md-5 text-center">
+                <img src="/images/logo.png" alt=""> OCS
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Integer posuere erat a ante.
+                </p>
+                <strong>Contact Info</strong>
+                <p>(+977)(9815031213)<br>daburdip@gmail.com</p>
+                <a href="https://www.facebook.com/dip.dahal.3" target="_blank"> <i class="fab fa-facebook-square"></i> </a>
+                <a href="#" target="_blank"> <i class="fab fa-twitter-square"></i> </a>
+                <a href="#" target="_blank"> <i class="fab fa-instagram"></i> </a>
+              </div>
+              <hr class="socket">
+              &copy;COSB Theme
+            </div>
+          </footer>
+        </div>
+        <!-- End Contact section -->
+      </div>
+    </div>
+    {{else}}
+      <div class="background-change-transparent">
+        <div class="privacy about">
+          <h2>Checkout</h2>
+          <div class="checkout-right">
+            <h4>No Items in Cart</h4>
+          </div>
+        </div>
+
+        <div class="full-width-footer">
+          <!-- Start Contact section -->
+          <div id="contact" class="offset">
+            <footer>
+              <div class="row justify-content-center">
+                <div class="col-md-5 text-center">
+                  <img src="/images/logo.png" alt=""> OCS
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Integer posuere erat a ante.
+                  </p>
+                  <strong>Contact Info</strong>
+                  <p>(+977)(9815031213)<br>daburdip@gmail.com</p>
+                  <a href="https://www.facebook.com/dip.dahal.3" target="_blank"> <i class="fab fa-facebook-square"></i> </a>
+                  <a href="#" target="_blank"> <i class="fab fa-twitter-square"></i> </a>
+                  <a href="#" target="_blank"> <i class="fab fa-instagram"></i> </a>
+                </div>
+                <hr class="socket">
+                &copy;COSB Theme
+              </div>
+            </footer>
+          </div>
+          <!-- End Contact section -->
+        </div>
+      </div>
+      {{/if}}
+      <!--quantity-->
+      <script>
+        $('.value-plus').on('click', function() {
+          var divUpd = $(this).parent().find('.value'),
+            newVal = parseInt(divUpd.text(), 10) + 1;
+          divUpd.text(newVal);
+        });
+
+        $('.value-minus').on('click', function() {
+          var divUpd = $(this).parent().find('.value'),
+            newVal = parseInt(divUpd.text(), 10) - 1;
+          if (newVal >= 1) divUpd.text(newVal);
+        });
+      </script>
+
+</body>

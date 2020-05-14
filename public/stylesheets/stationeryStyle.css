@@ -1,0 +1,39 @@
+body{
+  background: url('/images/tech1.jpg');
+}
+.container{
+  margin-top: 80px;
+}
+.card{
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+.card img{
+  padding: 5px;
+  height: 250px;
+  width: 100%;
+}
+.card-body{
+  color: black;
+  padding-left:15px;
+  margin: 0;
+  padding: 1px;
+}
+.card-title, .card-text {
+  padding-left: 15px;
+}
+.price{
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.row > div[class*='col-'] {
+  display: flex;
+  flex:1 0 auto;
+}
+@media (max-width:570px) {
+  .card{
+    left:17%;
+  }
+}

@@ -36,5 +36,18 @@
   },
   "devDependencies": {
     "handlebars": "^4.7.6"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dip-Dahal/online.git"
+  },
+  "keywords": ["nodejs","css","hbs"],
+  "author": "Dip Dahal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dip-Dahal/online/issues"
+  },
+  "homepage": "https://github.com/Dip-Dahal/online#readme",
+  "description": ""
 }

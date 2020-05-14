@@ -2,8 +2,9 @@
   "name": "my-website",
   "version": "0.0.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "deploy": "gh-pages -d views/layouts"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
@@ -19,6 +20,7 @@
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
     "express-validator": "^5.3.1",
+    "gh-pages": "^2.2.0",
     "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
     "jquery": "^3.5.1",
@@ -42,7 +44,11 @@
     "type": "git",
     "url": "git+https://github.com/Dip-Dahal/online.git"
   },
-  "keywords": ["nodejs","css","hbs"],
+  "keywords": [
+    "nodejs",
+    "css",
+    "hbs"
+  ],
   "author": "Dip Dahal",
   "license": "ISC",
   "bugs": {

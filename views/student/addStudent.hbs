@@ -1,0 +1,255 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/addStudentStyle.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    function CheckListed(data, txtSearch, id) {
+      var objList = document.getElementById(id+'s');
+      for (var i = 0; i < objList.options.length; i++) {
+        if (objList.options[i].value.trim().toUpperCase() == txtSearch.trim().toUpperCase()) {
+          return true;
+        }
+      }
+      alert(data + " " + txtSearch + " " + ' is incorrect');
+      document.getElementById(id).value = '';
+      $(this).focus();
+      return false; // text does not matched ;
+    }
+  </script>
+  <script>
+    $(document).ready(function() {
+
+
+      $('input:text:first').focus();
+
+
+      $('#studentreg').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#studentsym').focus();
+            event.preventDefault();
+          }
+      });
+
+
+      $('#studentsym').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#studentName').focus();
+            event.preventDefault();
+          }
+      });
+
+      $('#studentName').keypress(function(e) {
+        if (e.keyCode == 13) {
+
+          if ($('#studentName').val() == "") {
+            return false;
+          } else {
+            $('#studentstream').focus();
+            event.preventDefault();
+          }
+        }
+      });
+
+      $('#studentstream').keypress(function(e) {
+        if (e.keyCode == 13) {
+
+          if ($('#studentstream').val() == "") {
+            return false;
+          } else {
+            $('#studentclass').focus();
+            event.preventDefault();
+
+          }
+        }
+      });
+
+
+      $('#studentclass').keypress(function(e) {
+        if (e.keyCode == 13) {
+
+          if ($('#studentclass').val() == "") {
+            return false;
+          } else {
+            $('#studentsec').focus();
+            event.preventDefault();
+
+          }
+        }
+      });
+
+      $('#studentsec').keypress(function(e) {
+        if (e.keyCode == 13) {
+
+          if ($('#studentsec').val() == "") {
+            return false;
+          } else {
+            $('#studentroll').focus();
+            event.preventDefault();
+
+          }
+        }
+      });
+
+      $('#studentroll').keypress(function(e) {
+        if (e.keyCode == 13) {
+
+          if ($('#studentroll').val() == "") {
+            return false;
+          } else {
+            $('#studentAddress').focus();
+            event.preventDefault();
+
+          }
+        }
+      });
+      $('#studentAddress').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#studentAddressNew').focus();
+            event.preventDefault();
+        }
+      });
+
+      $('#studentAddressNew').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#studentcontact').focus();
+            event.preventDefault();
+        }
+      });
+      $('#studentcontact').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#studentcontactNew').focus();
+            event.preventDefault();
+        }
+      });
+      $('#studentcontactNew').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#studentfather').focus();
+            event.preventDefault();
+        }
+      });
+      $('#studentfather').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#studentMotherOrGurdian').focus();
+            event.preventDefault();
+        }
+      });
+      $('#studentMotherOrGurdian').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#studentImage').focus();
+            event.preventDefault();
+        }
+      });
+      $('#studentImage').keypress(function(e) {
+        if (e.keyCode == 13) {
+            $('#submit').focus();
+          }
+      });
+
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="dividerss">
+
+  </div>
+  <div class="loginBox">
+    <img src="/images/students/user.png" alt="" class="user">
+
+    <h2>Add Student Details</h2>
+    <form onload="" action="/student/addStudent" method="post"  enctype="multipart/form-data">
+
+      <span>Registration Id :</span>
+      <input type="text" name="studentreg" id="studentreg" class="form-input" placeholder="Enter Registration Id" value="">
+
+      <span>Symbol Number :</span>
+      <input type="text" name="studentsym" id="studentsym" class="form-input" placeholder="Enter Symbol No." value="">
+
+      <span>Name :</span>
+      <input type="text" name="studentName" id="studentName" class="form-input"  placeholder="Enter Student Name" value="" required>
+
+      <span>Stream :</span>
+      <input type="text" list="studentstreams" name="studentstream" id="studentstream" class="form-input" placeholder="General" value="" onChange="CheckListed('Stream',this.value, this.id)" required>
+      <datalist id="studentstreams">
+        <option value="GENERAL">
+        <option value="TECHNICAL">
+        <option value="MANAGEMENT">
+        <option value="COMMERCE">
+        <option value="ARTS">
+      </datalist>
+
+      <span>Class :</span>
+      <input type="text" list="studentclasss" name="studentclass" id="studentclass" class="form-input" placeholder="Class" value=""  onChange="CheckListed('Class',this.value, this.id)" required>
+      <datalist id="studentclasss">
+        <option value="Nursery">
+        <option value="LKG">
+        <option value="UKG">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+        <option value="4">
+        <option value="5">
+        <option value="6">
+        <option value="7">
+        <option value="8">
+        <option value="9">
+        <option value="10">
+        <option value="11">
+        <option value="12">
+      </datalist>
+
+      <span>Section :</span>
+      <input type="text" list="studentsecs" name="studentsec" id="studentsec" class="form-input" placeholder="Sec" value="" onChange="CheckListed('Section',this.value, this.id)" required>
+      <datalist id="studentsecs">
+        <option value="No Section">
+        <option value="A">
+        <option value="B">
+        <option value="C">
+        <option value="D">
+      </datalist>
+
+      <span>Roll No :</span>
+      <input type="text" name="studentroll" id="studentroll" class="form-input" placeholder="Roll No" value="" required>
+
+      <span>Address :</span>
+      <input type="text" name="studentAddress" id="studentAddress" class="form-input" placeholder="Residence Full Address" value="">
+      <input type="text" name="studentAddressNew" id="studentAddressNew" class="form-input" placeholder="District and City" value="">
+
+      <span>Contact No :</span>
+
+      <input type="text" name="studentcontact" id="studentcontact" class="form-input" placeholder="Father's Phone Number" value="">
+
+      <input type="text" name="studentcontactNew" id="studentcontactNew" class="form-input" placeholder="Mother's or Gurdians Phone Number" value="">
+
+      <span>Parents Name :</span>
+      <input type="text" name="studentfather" id="studentfather" class="form-input" placeholder="Father's Full name" value="">
+
+      <input type="text" name="studentMotherOrGurdian" id="studentMotherOrGurdian" class="form-input" placeholder="Mother's Or Gurdians Full name" value="">
+
+      <p>Upload Image</p>
+      <input type='file' id="studentImage" name="filename" accept="image/*" onchange="readURL(this);" />
+      <img class="upload_image" id="blah" name="blah" src="/images/logo.png"  alt="your image" />
+
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+      <input type="submit" name="submit" id="submit" value="Save Student Details">
+    </form>
+
+  </div>
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#blah')
+            .attr('src', e.target.result)
+            .width(150)
+            .height(150);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+</body>

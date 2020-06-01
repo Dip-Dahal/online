@@ -1,0 +1,173 @@
+body{
+  background: url('/images/tech3.jpg');
+  background-size: cover;
+  font-family: sans-serif;
+}
+.user {
+  width: 85px;
+  height: 80px;
+  overflow: hidden;
+  position: absolute;
+  top: calc(-80px/2);
+  left: calc(53% - 50px);
+  border-radius: 50%;
+}
+.loginBox{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 500px;
+  padding: 60px 25px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+h2{
+  font-size: 25px;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: bold;
+  padding: 0 0 10px;
+  color: #fff;
+  text-align: center;
+}
+.loginBox p{
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+}
+.loginBox span{
+  font-weight: bold;
+    color: #fff;
+}
+
+#terminal{
+  width: 75%;
+  margin-bottom: 18px;
+  text-align: center;
+}
+#studentstream{
+  width: 30%;
+  margin-bottom: 18px;
+  text-align: center;
+}
+#studentclass{
+  width: 28%;
+  margin-bottom: 18px;
+  text-align: center;
+}
+#subject{
+  width: 74%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#theoryFM{
+  width: 28%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#theoryPM{
+  width: 28%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#theory{
+  margin-left: 50px;
+}
+#practicalFM{
+  width: 28%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#practicalPM{
+  width: 28%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.loginBox input[type="text"]{
+  text-transform: uppercase;
+  padding-left: 10px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 14px;
+}
+.loginBox input[type="number"]{
+  padding-left: 10px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  width: 80px;
+  color: #fff;
+  font-size: 16px;
+}
+.loginBox input[type="file"]{
+  margin-top: 20px;
+  padding-left: 10px;
+  border: none;
+  background: transparent;
+  color: transparent;
+  font-size: 16px;
+}
+.loginBox input[type="submit"] {
+  margin-top: 25px;
+  font-weight: bolder;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: rgb(245, 80, 105);
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.loginBox input[type="submit"]:hover {
+  background:rgb(32, 55, 26);
+  color: #fff;
+}
+
+.loginBox a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.loginBox a[class="read"] {
+  color: rgb(255, 244, 100);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+::placeholder{
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.iAgree{
+  color: #fff;
+}
+
+.errors-signup{
+  background: white;
+  color:#f60909;
+}
+
+.upload_image{
+  margin-top: 10px;
+  width: 9px;
+  height: 10px;
+  max-height: 160px;
+  overflow: hidden;
+  position: absolute;
+  top: calc(1320px/2);
+  left: calc(70% - 50px);
+}

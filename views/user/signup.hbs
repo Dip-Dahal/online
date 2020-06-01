@@ -2,13 +2,67 @@
 
 <head>
   <link rel="stylesheet" href="/stylesheets/signupStyle.css">
+
+  <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+  <script>
+  $(document).ready(function () {
+
+
+    $('input:text:first').focus();
+
+
+      $('#email').keypress(function (e) {
+          if (e.keyCode == 13) {
+
+              if ($('#email').val() == "") {
+                  return false;
+              }
+              else {
+                  $('#password').focus();
+                  event.preventDefault();
+              }
+          }
+      });
+
+
+      $('#password').keypress(function (e) {
+          if (e.keyCode == 13) {
+
+              if ($('#password').val() == "") {
+                  return false;
+              }
+              else {
+                  $('#confirmPassword').focus();
+                  event.preventDefault();
+              }
+          }
+      });
+
+      $('#confirmPassword').keypress(function (e) {
+          if (e.keyCode == 13) {
+
+              if ($('#confirmPassword').val() == "") {
+                  return false;
+              }
+              else {
+                  $('#submit').focus();
+              }
+          }
+      });
+    });
+  </script>
+
 </head>
 <body>
   <div class="dividerss">
 
   </div>
 <div class="loginBox">
-  <img src="/images/user.png" alt=""class="user">
+  <img src="/images/students/user.png" alt=""class="user">
 
   <h2>Sign Up</h2>
   {{#if hasErrors}}
@@ -27,7 +81,7 @@
     <p>Confirm Password</p>
     <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-Enter Password" value="" required>
 
-    <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)"> <span class="iAgree" required>I Agree Terms & Coditions</span>
+     <span class="iAgree" required>On Sign Up You Agree on Terms & Coditions</span>
 
     <a href="#" class="read">Read Terms</a>
 

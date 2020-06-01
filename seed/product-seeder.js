@@ -1,7 +1,7 @@
 var Product = require('../models/product');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/shopping');
+mongoose.connect('mongodb+srv://tikaramdahal.dahal@gmail.com:Nungsidip@98@mycluster-aacac.mongodb.net/test?retryWrites=true&w=majority/shopping');
 
 var products = [
   new Product({

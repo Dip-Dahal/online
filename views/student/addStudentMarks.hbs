@@ -1,0 +1,236 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/addStudentMarksStyle.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    function CheckListed(data, txtSearch, id) {
+      var objList = document.getElementById(id + 's');
+      for (var i = 0; i < objList.options.length; i++) {
+        if (objList.options[i].value.trim().toUpperCase() == txtSearch.trim().toUpperCase()) {
+          return true;
+        }
+      }
+      alert(data + " " + txtSearch + " " + ' is incorrect');
+      document.getElementById(id).value = '';
+      $(this).focus();
+      return false; // text does not matched ;
+    }
+  </script>
+
+  <script>
+    $(document).ready(function() {
+
+      $(".username").each(function() {
+        var hours = $.trim($(this).val());
+        if (!hours) {
+          $(this).val(0);
+        }
+      });
+
+      $('input:text:first').focus();
+      $('input:text:first').select();
+
+      var currentBoxNumber = 0;
+      $(".username").keydown(function(event) {
+        if (event.keyCode == 13 || event.keyCode == 40) {
+          textboxes = $("input.username");
+          currentBoxNumber = textboxes.index(this);
+          console.log(textboxes.index(this));
+          if (textboxes[currentBoxNumber + 2] != null) {
+            nextBox = textboxes[currentBoxNumber + 2];
+            nextBox.focus();
+            nextBox.select();
+            event.preventDefault();
+            return false;
+          }
+        }
+      });
+
+      $(".username").keydown(function(event) {
+        if (event.keyCode == 38) {
+          textboxes = $("input.username");
+          currentBoxNumber = textboxes.index(this);
+          console.log(textboxes.index(this));
+          if (textboxes[currentBoxNumber - 2] != null) {
+            nextBox = textboxes[currentBoxNumber - 2];
+            nextBox.focus();
+            nextBox.select();
+            event.preventDefault();
+            return false;
+          }
+        }
+      });
+
+      $(".username").keydown(function(event) {
+        if (event.keyCode == 37) {
+          textboxes = $("input.username");
+          currentBoxNumber = textboxes.index(this);
+          console.log(textboxes.index(this));
+          if (textboxes[currentBoxNumber - 1] != null) {
+            nextBox = textboxes[currentBoxNumber - 1];
+            nextBox.focus();
+            nextBox.select();
+            event.preventDefault();
+            return false;
+          }
+        }
+      });
+
+      $(".username").keydown(function(event) {
+        if (event.keyCode == 39) {
+          textboxes = $("input.username");
+          currentBoxNumber = textboxes.index(this);
+          console.log(textboxes.index(this));
+          if (textboxes[currentBoxNumber + 1] != null) {
+            nextBox = textboxes[currentBoxNumber + 1];
+            nextBox.focus();
+            nextBox.select();
+            event.preventDefault();
+            return false;
+          }
+        }
+      });
+
+      $("#theoryMarks").each(function() {
+        var fullMarks = $.trim($("#theoryFullMarks").val());
+        var obtainMark = $.trim($(this).val());
+        if (obtainMark >fullMarks) {
+          alert('Marks cannot be greater than full marks');
+          this.focus();
+          this.select();
+          $(this).val('');
+        }
+      });
+      $.fn.inputFilter = function(inputFilter) {
+        return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+          if (inputFilter(this.value)) {
+            this.oldValue = this.value;
+            this.oldSelectionStart = this.selectionStart;
+            this.oldSelectionEnd = this.selectionEnd;
+          } else if (this.hasOwnProperty("oldValue")) {
+            this.value = this.oldValue;
+            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+          } else {
+            this.value = "";
+          }
+        });
+      };
+
+      $(".username").inputFilter(function(value) {
+        return /^-?\d*[.]?\d*$/.test(value);
+      });
+
+      $(".username").keydown(function(event) {
+      $(".theory").each(function() {
+      var fullMarks = $.trim($(".theoryFullMarks").val());
+        fullMarks = parseInt(fullMarks);
+        var obtainMark = $.trim($(this).val());
+        if (obtainMark > fullMarks) {
+          alert('Theory Marks cannot be greater than full marks');
+          $(this).val('0');
+          this.focus();
+          this.select();
+        }
+      });
+    });
+
+    $(".username").keydown(function(event) {
+    $(".practical").each(function() {
+    var fullMarks = $.trim($(".practicalFullMarks").val());
+      fullMarks = parseInt(fullMarks);
+      var obtainMark = $.trim($(this).val());
+      if (obtainMark > fullMarks) {
+        alert('Practical Marks cannot be greater than full marks');
+        $(this).val('0');
+        this.focus();
+        this.select();
+      }
+    });
+  });
+
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="dividerss">
+
+  </div>
+  <div class="loginBox">
+    <img src="/images/students/exam.jpg" alt="" class="user">
+
+    <h2>Add Student's Marks</h2>
+    <table style="width: 95%; margin-left:20px; color:rgb(228, 236, 210); font-weight:bold; text-transform: uppercase; text-align:center;" id="inputs" role="grid">
+      <tr>
+        <td>{{terminal}}</td>
+      </tr>
+    </table>
+
+    <table style="width: 95%; margin-left:20px; color:rgb(144, 215, 192); font-weight:bold; text-transform: uppercase; text-align:center;" id="inputs" role="grid">
+      <tr>
+        <td colspan="2">Stream: {{streamForMarks}}</td>
+        <td colspan="2">Class: {{classForMarks}}</td>
+        <td colspan="3">Section: {{secForMarks}}</td>
+      </tr>
+      <tr>
+
+        <td style="text-transform:capitalize">Sub: {{subject}}</td>
+        <td style="text-transform:capitalize">Theory</td>
+        {{# each subjectForMarks}}
+          {{# each this}}
+            <td style="text-transform:capitalize">FM:
+              <input type="button" id="theoryFullMarks" class="theoryFullMarks" value="{{this.theoryFM}}" readonly>
+               </td>
+            <td style="text-transform:capitalize">PM: {{this.theoryPM}}</td>
+            <td style="text-transform:capitalize">Practical </td>
+            <td style="text-transform:capitalize">FM:
+              <input type="button" id="practicalFullMarks" class="practicalFullMarks" value="{{this.practicalFM}}" readonly> </td>
+            <td style="text-transform:capitalize">PM: {{this.practicalPM}}</td>
+            {{/each}}
+            {{/each}}
+      </tr>
+    </table>
+    <br>
+    <form action="/student/addStudentDetailsBeforeMarks">
+      <table style="width: 95%; margin-left:20px;" role="grid">
+        <thead style="font-size:20px; color:#fff; font-weight:bold;">
+          <tr role="row" style="text-align:center;">
+            <th>Student Names</th>
+            <th>Theory Marks</th>
+            <th>Practical Marks</th>
+          </tr>
+        </thead>
+        <tbody style="text-align:center;padding-left: 10px; color:#fff; text-transform: uppercase;">
+          {{# each students}}
+            {{# each this}}
+              <tr style="text-align:center;">
+                  <td style="text-align:left; padding-left:10px;"> {{this.studentName}} </td>
+
+                  <td> <input type="text" name="theoryMarks" id="theoryMarks" class="username theory" placeholder="0" maxlength="3" required> </td>
+                  <td> <input type="text" name="practicalMarks" id="practicalMarks" class="username practical" placeholder="0" maxlength="3" required> </td>
+              </tr>
+              {{/each}}
+              {{/each}}
+        </tbody>
+      </table>
+      <input type="submit" name="button" class="saveMarks" value="Save Student Marks">
+    </form>
+  </div>
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#blah')
+            .attr('src', e.target.result)
+            .width(150)
+            .height(150);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+</body>

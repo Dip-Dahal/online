@@ -38,10 +38,10 @@ ul,label{
 button.submit.check_out{
     display: block;
     position: relative;
-    padding: 11px 30px;
+    padding: 5px 30px;
     letter-spacing: 1px;
     background: linear-gradient(#dd3e54,#6be585);
-    font-size: 1.2em;
+    font-size: 1em;
     color: #fff;
     font-weight: bold;
     border: none;

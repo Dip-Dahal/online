@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(validator());
 app.use(cookieParser());
 app.use(session({
-  secret: 'nungsidip98',
+  secret: 'nungsi',
   resave:false,
   saveUninitialized:false,
   sore: new MongoStore({ mongooseConnection: mongoose.connection}),
